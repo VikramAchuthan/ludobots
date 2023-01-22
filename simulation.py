@@ -4,6 +4,7 @@ from world import WORLD
 from robot import ROBOT
 import pyrosim.pyrosim as pyrosim
 
+
 import time
 
 
@@ -27,6 +28,7 @@ class SIMULATION:
 		for x in range(0,1000):
 			p.stepSimulation()
 			self.robot.Sense(x)
+			self.robot.Think()
 			self.robot.Act(x)
 
 			# frontLegSensorValues[x] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
