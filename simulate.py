@@ -9,7 +9,6 @@ import sys
 # import numpy
 # import time
 # import random
-
 directOrGUI =  sys.argv[1]
 solutionID = sys.argv[2]
 

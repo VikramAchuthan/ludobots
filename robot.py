@@ -26,12 +26,16 @@ class ROBOT:
 	def Prepare_To_Sense(self):
 		self.sensors = {}
 		for linkName in pyrosim.linkNamesToIndices:
+			print("linkname:", linkName)
 			self.sensors[linkName] = SENSOR(linkName)
 
 	def Sense(self,index):
 		# print(self.sensors.values())
 		for sensor_type in self.sensors.values():
 			sensor_type.Get_Value(index)
+
+
+		list(self.sensors.values())[0].Get_Value_CPG(index)
 
 	def Prepare_To_Act(self):
 		self.motors = {}
@@ -64,12 +68,16 @@ class ROBOT:
 	def Get_Fitness(self):
 		stateOfLinkZero = p.getLinkState(self.robotId,0)
 		positionOfLinkZero = stateOfLinkZero[0]
-		xCoordinateOfLinkZero = positionOfLinkZero[0]
+		xCoordinateOfLinkZero = positionOfLinkZero[2]
+		# basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
+ 	# 	basePosition = basePositionAndOrientation[0]
+		# xPosition = basePosition[0]
 		# print(stateOfLinkZero)
 
 		# print(xCoordinateOfLinkZero)
 		f = open("tmp" + str(self.solutionID) + ".txt", "w")
 		f.write(str(xCoordinateOfLinkZero))
+		f.close()
 		os.system("mv tmp" + str(self.solutionID) + ".txt" + " fitness"  + str(self.solutionID) + ".txt")
 
 		exit()

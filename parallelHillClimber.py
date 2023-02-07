@@ -1,16 +1,17 @@
 from solution import SOLUTION
 import os
 
-numberOfGenerations = 2
-populationSize = 2
+numberOfGenerations = 10
+populationSize = 10
 import copy
 
 class PARALLEL_HILL_CLIMBER:
 
 	def __init__(self):
 
-		os.system("rm brain*.nndf")
-		os.system("rm fitness*.txt")
+		os.system("find . -name '*.nndf' -delete")
+
+		os.system("find . -name '*.txt' -delete")
 
 		self.parents = {}
 		self.nextAvailableID = 0
@@ -69,17 +70,18 @@ class PARALLEL_HILL_CLIMBER:
 		
 	def Select(self):
 		for key in self.parents.keys():
-			if self.parents[key].fitness > self.children[key].fitness:
+			if self.parents[key].fitness < self.children[key].fitness:
 				self.parents[key] = self.children[key]
 	
 	def Show_Best(self):
-		smallest_fitness = self.parents[0].fitness
-		smallest_fitness_parent = self.parents[0]
+		best_fitness = self.parents[0].fitness
+		best_fitness_parent = self.parents[0]
 		for key in self.parents.keys():
-			if self.parents[key].fitness < smallest_fitness:
-				smallest_fitness = self.parents[key].fitness
-				smallest_fitness_parent = self.parents[key]
+			if self.parents[key].fitness > best_fitness:
+				best_fitness = self.parents[key].fitness
+				best_fitness_parent = self.parents[key]
 
-		smallest_fitness_parent.Start_Simulation("GUI")
+		print("smallest fitness: ",best_fitness_parent.fitness)
+		best_fitness_parent.Start_Simulation("GUI")
 
 
