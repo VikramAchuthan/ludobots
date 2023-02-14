@@ -1,8 +1,8 @@
 from solution import SOLUTION
 import os
 
-numberOfGenerations = 10
-populationSize = 10
+numberOfGenerations = 1
+populationSize = 1
 import copy
 
 class PARALLEL_HILL_CLIMBER:
@@ -25,7 +25,7 @@ class PARALLEL_HILL_CLIMBER:
 
 	def Evaluate(self, solutions):
 		for x in range(0, populationSize):
-			solutions[x].Start_Simulation("DIRECT")
+			solutions[x].Start_Simulation("GUI")
 		for x in range(0, populationSize):
 			solutions[x].Wait_For_Simulation_To_End("rm fitness" + str(x) + ".txt")
 
@@ -70,7 +70,7 @@ class PARALLEL_HILL_CLIMBER:
 		
 	def Select(self):
 		for key in self.parents.keys():
-			if self.parents[key].fitness < self.children[key].fitness:
+			if self.parents[key].fitness > self.children[key].fitness:
 				self.parents[key] = self.children[key]
 	
 	def Show_Best(self):

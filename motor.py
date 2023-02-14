@@ -28,4 +28,4 @@ class MOTOR:
 		# for x in range(0,1000):
 			# 	targetAngles_FrontLeg[x] = amplitude_FrontLeg * numpy.sin(frequency_FrontLeg * targetAngles_FrontLeg[x] + phaseOffset_FrontLeg)
 	def Set_Value(self, robot, desiredAngle):
-		pyrosim.Set_Motor_For_Joint(bodyIndex = robot, jointName = self.jointName, controlMode = p.POSITION_CONTROL, targetPosition = desiredAngle, maxForce = 50)
+		pyrosim.Set_Motor_For_Joint(bodyIndex = robot, jointName = self.jointName, controlMode = p.POSITION_CONTROL, targetPosition = desiredAngle, maxForce = 1)

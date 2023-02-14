@@ -15,6 +15,7 @@ class SIMULATION:
 
 		if mode_bool == "DIRECT":
 			self.physicsClient = p.connect(p.DIRECT)
+
 		else:
 			self.physicsClient = p.connect(p.GUI)
 		p.setAdditionalSearchPath(pybullet_data.getDataPath())
