@@ -12,4 +12,7 @@ I introduced randomness into the program by utilizing the random() library, whic
 In order to see the randomized simulations, download the code and run the search.py file, once you have pyrosim and pybullet installed. 
 
 Citation: https://www.reddit.com/r/ludobots/wiki/finalproject/
-![assignment7](https://user-images.githubusercontent.com/49349631/220233778-9ed97765-2540-4fe2-8663-de9faeb5399a.jpg)
+
+
+
+![assignment7](images/assignment7.jpeg)
