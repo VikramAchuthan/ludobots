@@ -142,11 +142,11 @@ def Send_Link(name,pos,size, objectType, color_name, rgb_color_string):
 
     availableLinkIndex = availableLinkIndex + 1
 
-def Send_Joint(name,parent,child,type,position):
+def Send_Joint(name,parent,child,type,position,jointAxis,rpy):
 
-    joint = JOINT(name,parent,child,type,position)
+    joint = JOINT(name,parent,child,type,position,rpy)
 
-    joint.Save(f)
+    joint.Save(f,jointAxis,rpy)
 
 def Send_Motor_Neuron(name,jointName):
 

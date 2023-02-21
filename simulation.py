@@ -18,6 +18,7 @@ class SIMULATION:
 
 		else:
 			self.physicsClient = p.connect(p.GUI)
+			p.configureDebugVisualizer(p.COV_ENABLE_GUI,0)
 		p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
 		# #self.robotId = p.loadURDF("body.urdf")
@@ -40,7 +41,7 @@ class SIMULATION:
 			# pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = b'Torso_FrontLeg', controlMode = p.POSITION_CONTROL, targetPosition =targetAngles_FrontLeg[x], maxForce = 100)
 
 
-			time.sleep(1/1800)
+			time.sleep(1/100)
 
 	def Get_Fitness(self):
 		self.robot.Get_Fitness()
