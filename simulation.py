@@ -28,7 +28,7 @@ class SIMULATION:
 
 		self.world = WORLD()
 		self.robot = ROBOT(solutionID, "rm brain" + str(solutionID) + ".nndf")
-	def Run(self):
+	def Run(self, mode_bool):
 		for x in range(0,1000):
 			p.stepSimulation()
 			self.robot.Sense(x)
@@ -40,8 +40,10 @@ class SIMULATION:
 			# pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = b'Torso_BackLeg', controlMode = p.POSITION_CONTROL, targetPosition = targetAngles_BackLeg[x], maxForce = 100)
 			# pyrosim.Set_Motor_For_Joint(bodyIndex = robotId, jointName = b'Torso_FrontLeg', controlMode = p.POSITION_CONTROL, targetPosition =targetAngles_FrontLeg[x], maxForce = 100)
 
-
-			time.sleep(1/100)
+			if mode_bool == "GUI":
+				time.sleep(1/100)
+			# else:
+			# 	time.sleep(1/100)
 
 	def Get_Fitness(self):
 		self.robot.Get_Fitness()

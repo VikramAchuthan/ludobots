@@ -14,11 +14,11 @@ class SENSOR:
 
 		self.values[index] = pyrosim.Get_Touch_Sensor_Value_For_Link(self.linkName)
 
-	def Get_Value_CPG(self, index):
+	# def Get_Value_CPG(self, index):
 
-		x = 1000
+	# 	x = 1000
 
-		self.values[index] = math.sin(index * x)
+	# 	self.values[index] = math.sin(index * x)
 
 
 

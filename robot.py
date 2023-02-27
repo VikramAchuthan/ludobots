@@ -26,7 +26,6 @@ class ROBOT:
 	def Prepare_To_Sense(self):
 		self.sensors = {}
 		for linkName in pyrosim.linkNamesToIndices:
-			print("linkname:", linkName)
 			self.sensors[linkName] = SENSOR(linkName)
 
 	def Sense(self,index):
@@ -35,7 +34,7 @@ class ROBOT:
 			sensor_type.Get_Value(index)
 
 
-		list(self.sensors.values())[0].Get_Value_CPG(index)
+		# list(self.sensors.values())[0].Get_Value_CPG(index)
 
 	def Prepare_To_Act(self):
 		self.motors = {}
@@ -47,7 +46,7 @@ class ROBOT:
 			if self.nn.Is_Motor_Neuron(neuronName):
 				jointName = self.nn.Get_Motor_Neurons_Joint(neuronName)
 				desiredAngle = self.nn.Get_Value_Of(neuronName)
-				self.motors[jointName.encode('UTF-8')].Set_Value(self.robotId, desiredAngle)
+				self.motors[jointName.encode('UTF-8')].Set_Value(self.robotId, .2*desiredAngle)
 
 
 
@@ -68,7 +67,10 @@ class ROBOT:
 	def Get_Fitness(self):
 		stateOfLinkZero = p.getLinkState(self.robotId,0)
 		positionOfLinkZero = stateOfLinkZero[0]
-		xCoordinateOfLinkZero = positionOfLinkZero[2]
+		xCoordinateOfLinkZero = positionOfLinkZero[0]
+		yCoordinateOfLinkZero = positionOfLinkZero[1]
+
+		distance_fitness = math.sqrt(xCoordinateOfLinkZero * xCoordinateOfLinkZero + yCoordinateOfLinkZero * yCoordinateOfLinkZero)
 		# basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
  	# 	basePosition = basePositionAndOrientation[0]
 		# xPosition = basePosition[0]
@@ -76,7 +78,7 @@ class ROBOT:
 
 		# print(xCoordinateOfLinkZero)
 		f = open("tmp" + str(self.solutionID) + ".txt", "w")
-		f.write(str(xCoordinateOfLinkZero))
+		f.write(str(distance_fitness))
 		f.close()
 		os.system("mv tmp" + str(self.solutionID) + ".txt" + " fitness"  + str(self.solutionID) + ".txt")
 
