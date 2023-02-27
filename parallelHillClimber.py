@@ -15,8 +15,8 @@ class PARALLEL_HILL_CLIMBER:
 
 		self.parents = {}
 		self.nextAvailableID = 0
-
-		for x in range(0, populationSize):
+		self.data = list(range(0,100))
+		for x in range(0, populationSize):	
 			self.parents[x] = SOLUTION(self.nextAvailableID)
 			self.nextAvailableID += 1
 
@@ -25,7 +25,7 @@ class PARALLEL_HILL_CLIMBER:
 
 	def Evaluate(self, solutions):
 		for x in range(0, populationSize):
-			solutions[x].Start_Simulation("GUI")
+			solutions[x].Start_Simulation("DIRECT")
 		for x in range(0, populationSize):
 			solutions[x].Wait_For_Simulation_To_End("rm fitness" + str(x) + ".txt")
 
@@ -35,10 +35,10 @@ class PARALLEL_HILL_CLIMBER:
 
 		self.Evaluate(self.parents)
 
-		for currentGeneration in range(0, numberOfGenerations):
-			self.Evolve_For_One_Generation()
+		for genNum in range(0, numberOfGenerations):
+			self.Evolve_For_One_Generation(genNum)
 			
-	def Evolve_For_One_Generation(self):
+	def Evolve_For_One_Generation(self,genNum):
 		
 		self.Spawn()
 
@@ -47,9 +47,10 @@ class PARALLEL_HILL_CLIMBER:
 		self.Evaluate(self.children)
 		self.Print()
 		
-		self.Select()
+		self.Select(genNum)
 
 	def Print(self):
+		
 		for key in self.parents.keys():
 			print("parent fitness: ", self.parents[key].fitness, "child fitness: ", self.children[key].fitness)
 			print("  ")
@@ -68,10 +69,16 @@ class PARALLEL_HILL_CLIMBER:
 
 		
 		
-	def Select(self):
+	def Select(self, gen_num):
 		for key in self.parents.keys():
-			if self.parents[key].fitness > self.children[key].fitness:
+			if self.parents[key].fitness < self.children[key].fitness:
 				self.parents[key] = self.children[key]
+
+		bestFit = 0
+        for i in (self.parents.keys()):
+            if(self.parents[i].fitness > bestFit):
+                bestFit = self.parents[i].fitness
+		self.data[gen_num] = bestFit
 	
 	def Show_Best(self):
 		best_fitness = self.parents[0].fitness
@@ -81,7 +88,10 @@ class PARALLEL_HILL_CLIMBER:
 				best_fitness = self.parents[key].fitness
 				best_fitness_parent = self.parents[key]
 
-		print("smallest fitness: ",best_fitness_parent.fitness)
+		#change fileX for each time you run a different seed
+		with open("file5.npy", "wb") as f:
+            np.save(f,np.array(self.data))
+		print("largest fitness: ",best_fitness_parent.fitness)
 		best_fitness_parent.Start_Simulation("GUI")
 
 
