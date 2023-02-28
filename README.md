@@ -22,5 +22,7 @@ Citation: https://www.reddit.com/r/ludobots/wiki/finalproject/
 
 
 
-![assignment7](images/assignment7.jpeg)
+![assignment8diagram](images/assignment8diagram1.png)
+![assignment8diagram2](images/assignment8diagram2.png)
+
 ![assignment8_graph](/assignment8graph.png)
