@@ -23,4 +23,4 @@ Citation: https://www.reddit.com/r/ludobots/wiki/finalproject/
 
 
 ![assignment7](images/assignment7.jpeg)
-![assignment8_graph](Screen Shot 2023-02-27 at 6.29.42 PM.png)
+![assignment8_graph](/assignment8graph.png)
