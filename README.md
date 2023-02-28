@@ -21,8 +21,8 @@ In order to see the randomized simulations, download the code and run the search
 Citation: https://www.reddit.com/r/ludobots/wiki/finalproject/
 
 
-
-![assignment8diagram](images/assignment8diagram1.png)
-![assignment8diagram2](images/assignment8diagram2.png)
-
 ![assignment8_graph](/assignment8graph.png)
+
+![assignment8diagram](/assignment8diagram1.png)
+![assignment8diagram2](/assignment8diagram2.png)
+
