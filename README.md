@@ -6,6 +6,14 @@
 
 Citation: https://www.reddit.com/r/ludobots/wiki/finalproject/
 
+![P1](/P1.png)
+![3](/3.png)
+![4](/4.png)
+![5](/5.png)
+![6](/6.png)
+![7](/7.png)
+![8](/8.png)
+
 
 ![assignment8_graph](/assignment8graph.png)
 
