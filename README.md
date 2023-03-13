@@ -1,6 +1,6 @@
 # ludobots - Vikram Achuthan, Artificial Life - CS 396, Northwestern University - Final Project
 
-![Introduction](/intro.png)
+![Introduction](/Intro.png)
 
 
 
