@@ -12,7 +12,8 @@ AL 396: https://www.mccormick.northwestern.edu/computer-science/academics/course
 
 ![Introduction](/Intro.png)
 
-
+Trailer: https://youtu.be/DYANE1E8564
+Movie: https://youtu.be/ANxx1r85Ca4
 
 
 ![P1](/P1.png)
