@@ -1,16 +1,16 @@
 # ludobots - Vikram Achuthan, Artificial Life - CS 396, Northwestern University - Final Project
 
-![Introduction](/Intro.png)
-
 Citations: 
 
 Ludobots: https://www.reddit.com/r/ludobots/wiki/finalproject/
-
 Pyrosim: https://ccappelle.github.io/pyrosim/
-
 Karl Sims: https://www.karlsims.com/evolved-virtual-creatures.html
 
 AL 396: https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/396-2.html
+
+![Introduction](/Intro.png)
+
+
 
 
 ![P1](/P1.png)
