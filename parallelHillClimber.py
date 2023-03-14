@@ -1,8 +1,8 @@
 from solution import SOLUTION
 import os
 
-numberOfGenerations = 1
-populationSize = 1
+numberOfGenerations = 50
+populationSize = 10
 import copy
 
 class PARALLEL_HILL_CLIMBER:
@@ -75,10 +75,10 @@ class PARALLEL_HILL_CLIMBER:
 				self.parents[key] = self.children[key]
 
 		bestFit = 0
-        for i in (self.parents.keys()):
-            if(self.parents[i].fitness > bestFit):
-                bestFit = self.parents[i].fitness
-		self.data[gen_num] = bestFit
+		for i in (self.parents.keys()):
+			if(self.parents[i].fitness > bestFit):
+				bestFit = self.parents[i].fitness
+		# self.data[gen_num] = bestFit
 	
 	def Show_Best(self):
 		best_fitness = self.parents[0].fitness
@@ -89,8 +89,8 @@ class PARALLEL_HILL_CLIMBER:
 				best_fitness_parent = self.parents[key]
 
 		#change fileX for each time you run a different seed
-		with open("file5.npy", "wb") as f:
-            np.save(f,np.array(self.data))
+		# with open("file5.npy", "wb") as f:
+  #           np.save(f,np.array(self.data))
 		print("largest fitness: ",best_fitness_parent.fitness)
 		best_fitness_parent.Start_Simulation("GUI")
 
