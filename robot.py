@@ -14,7 +14,9 @@ class ROBOT:
 	def __init__(self, solutionID, delete):
 
 		self.solutionID = solutionID
-		self.robotId = p.loadURDF("body.urdf")
+		#self.robotId = p.loadURDF("body.urdf")
+		self.robotId = p.loadURDF("body" + str(self.solutionID) + ".urdf")
+
 		pyrosim.Prepare_To_Simulate(self.robotId)
 		self.Prepare_To_Sense()
 		self.Prepare_To_Act()
@@ -68,9 +70,7 @@ class ROBOT:
 		stateOfLinkZero = p.getLinkState(self.robotId,0)
 		positionOfLinkZero = stateOfLinkZero[0]
 		xCoordinateOfLinkZero = positionOfLinkZero[0]
-		yCoordinateOfLinkZero = positionOfLinkZero[1]
-
-		distance_fitness = math.sqrt(xCoordinateOfLinkZero * xCoordinateOfLinkZero + yCoordinateOfLinkZero * yCoordinateOfLinkZero)
+		print("position of link:",positionOfLinkZero)
 		# basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
  	# 	basePosition = basePositionAndOrientation[0]
 		# xPosition = basePosition[0]
@@ -78,14 +78,31 @@ class ROBOT:
 
 		# print(xCoordinateOfLinkZero)
 		f = open("tmp" + str(self.solutionID) + ".txt", "w")
-		f.write(str(distance_fitness))
+		f.write(str(xCoordinateOfLinkZero))
 		f.close()
 		os.system("mv tmp" + str(self.solutionID) + ".txt" + " fitness"  + str(self.solutionID) + ".txt")
 
 		exit()
 
 
+	# stateOfLinkZero = p.getLinkState(self.robotId,0)
+	# 	positionOfLinkZero = stateOfLinkZero[0]
+	# 	xCoordinateOfLinkZero = positionOfLinkZero[0]
+	# 	yCoordinateOfLinkZero = positionOfLinkZero[1]
 
+	# 	distance_fitness = math.sqrt(xCoordinateOfLinkZero * xCoordinateOfLinkZero + yCoordinateOfLinkZero * yCoordinateOfLinkZero)
+	# 	# basePositionAndOrientation = p.getBasePositionAndOrientation(self.robotId)
+ # 	# 	basePosition = basePositionAndOrientation[0]
+	# 	# xPosition = basePosition[0]
+	# 	# print(stateOfLinkZero)
+
+	# 	# print(xCoordinateOfLinkZero)
+	# 	f = open("tmp" + str(self.solutionID) + ".txt", "w")
+	# 	f.write(str(distance_fitness))
+	# 	f.close()
+	# 	os.system("mv tmp" + str(self.solutionID) + ".txt" + " fitness"  + str(self.solutionID) + ".txt")
+
+	# 	exit()
 
 
 
