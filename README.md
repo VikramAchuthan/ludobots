@@ -4,7 +4,6 @@
 
 
 
-Citation: https://www.reddit.com/r/ludobots/wiki/finalproject/
 
 ![P1](/P1.png)
 ![3](/3.png)
@@ -14,9 +13,12 @@ Citation: https://www.reddit.com/r/ludobots/wiki/finalproject/
 ![7](/7.png)
 ![8](/8.png)
 
+Citations: 
 
-![assignment8_graph](/assignment8graph.png)
+Ludobots: https://www.reddit.com/r/ludobots/wiki/finalproject/
+Pyrosim: https://ccappelle.github.io/pyrosim/
+Karl Sims: https://www.karlsims.com/evolved-virtual-creatures.html
 
-![assignment8diagram](/assignment8diagram1.png)
-![assignment8diagram2](/assignment8diagram2.png)
+AL 396: https://www.mccormick.northwestern.edu/computer-science/academics/courses/descriptions/396-2.html
+
 
